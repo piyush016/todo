@@ -48,3 +48,5 @@ app.put("/completed", async function (req, res) {
     msg: "Completed",
   });
 });
+
+app.listen(3000);
