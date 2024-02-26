@@ -5,7 +5,7 @@ export function CreateTodo() {
   const [description, setDescription] = useState("");
 
   const handleAddTodo = async () => {
-    await fetch("http://localhost:3000/todo", {
+    await fetch("https://todo-5grb.onrender.com/todo", {
       method: "POST",
       body: JSON.stringify({
         title: title,

@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await fetch("http://localhost:3000/todos");
+        const response = await fetch("https://todo-5grb.onrender.com/todos");
         if (!response.ok) {
           throw new Error("Failed to fetch todos");
         }
@@ -26,7 +26,7 @@ function App() {
   const markTodoCompleted = async (id) => {
     try {
       console.log(id);
-      const response = await fetch(`http://localhost:3000/completed`, {
+      const response = await fetch(`https://todo-5grb.onrender.com/completed`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
