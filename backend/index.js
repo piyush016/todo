@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
-const { createTodo } = require("./types");
+const cors = require("cors");
+const { createTodo, updateTodo } = require("./types");
 const { todo } = require("./db");
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/todo", async function (req, res) {
   const createPayload = req.body;
@@ -38,8 +40,8 @@ app.put("/completed", async function (req, res) {
     res.status(404).json({ msg: "Invalid inputs" });
     return;
   }
-  await todo.update(
-    { _id: req.body.id },
+  await todo.updateOne(
+    { _id: updatePayload.id },
     {
       completed: true,
     }
